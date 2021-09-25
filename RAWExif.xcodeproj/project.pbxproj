@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		664EA79926FFC82200D41627 /* PhotoPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */; };
+		664EA79B26FFCAC700D41627 /* PhotoPickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */; };
 		669264B326FFB34A0095706E /* RAWExifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264B226FFB34A0095706E /* RAWExifApp.swift */; };
 		669264B526FFB34A0095706E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264B426FFB34A0095706E /* ContentView.swift */; };
 		669264B726FFB34C0095706E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669264B626FFB34C0095706E /* Assets.xcassets */; };
 		669264BA26FFB34C0095706E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669264B926FFB34C0095706E /* Preview Assets.xcassets */; };
+		669264C226FFB37C0095706E /* CustomPhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264C126FFB37C0095706E /* CustomPhotoPickerView.swift */; };
+		669264C426FFB48D0095706E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264C326FFB48D0095706E /* PhotoPicker.swift */; };
+		669264C626FFB6200095706E /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264C526FFB6200095706E /* PHAsset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerListRowView.swift; sourceTree = "<group>"; };
+		664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerState.swift; sourceTree = "<group>"; };
 		669264AF26FFB34A0095706E /* RAWExif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAWExif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		669264B226FFB34A0095706E /* RAWExifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWExifApp.swift; sourceTree = "<group>"; };
 		669264B426FFB34A0095706E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		669264B626FFB34C0095706E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		669264B926FFB34C0095706E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		669264BB26FFB34C0095706E /* RAWExif.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RAWExif.entitlements; sourceTree = "<group>"; };
+		669264C126FFB37C0095706E /* CustomPhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoPickerView.swift; sourceTree = "<group>"; };
+		669264C326FFB48D0095706E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		669264C526FFB6200095706E /* PHAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,11 +43,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		664EA79726FFC7C300D41627 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				669264C326FFB48D0095706E /* PhotoPicker.swift */,
+				664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */,
+				664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		669264A626FFB34A0095706E = {
 			isa = PBXGroup;
 			children = (
 				669264B126FFB34A0095706E /* RAWExif */,
 				669264B026FFB34A0095706E /* Products */,
+				66E8238726FFBDFC009C1068 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,11 +73,14 @@
 		669264B126FFB34A0095706E /* RAWExif */ = {
 			isa = PBXGroup;
 			children = (
+				664EA79726FFC7C300D41627 /* Picker */,
 				669264B226FFB34A0095706E /* RAWExifApp.swift */,
+				669264C126FFB37C0095706E /* CustomPhotoPickerView.swift */,
 				669264B426FFB34A0095706E /* ContentView.swift */,
 				669264B626FFB34C0095706E /* Assets.xcassets */,
 				669264BB26FFB34C0095706E /* RAWExif.entitlements */,
 				669264B826FFB34C0095706E /* Preview Content */,
+				669264C526FFB6200095706E /* PHAsset.swift */,
 			);
 			path = RAWExif;
 			sourceTree = "<group>";
@@ -67,6 +91,13 @@
 				669264B926FFB34C0095706E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		66E8238726FFBDFC009C1068 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +116,8 @@
 			dependencies = (
 			);
 			name = RAWExif;
+			packageProductDependencies = (
+			);
 			productName = RAWExif;
 			productReference = 669264AF26FFB34A0095706E /* RAWExif.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +146,8 @@
 				Base,
 			);
 			mainGroup = 669264A626FFB34A0095706E;
+			packageReferences = (
+			);
 			productRefGroup = 669264B026FFB34A0095706E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669264C426FFB48D0095706E /* PhotoPicker.swift in Sources */,
+				669264C226FFB37C0095706E /* CustomPhotoPickerView.swift in Sources */,
+				664EA79926FFC82200D41627 /* PhotoPickerListRowView.swift in Sources */,
+				669264C626FFB6200095706E /* PHAsset.swift in Sources */,
 				669264B526FFB34A0095706E /* ContentView.swift in Sources */,
 				669264B326FFB34A0095706E /* RAWExifApp.swift in Sources */,
+				664EA79B26FFCAC700D41627 /* PhotoPickerState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +315,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Accesses photos in order to modify and delete them";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcannon.RAWExif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,11 +342,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Accesses photos in order to modify and delete them";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcannon.RAWExif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
