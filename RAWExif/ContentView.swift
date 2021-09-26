@@ -70,7 +70,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                Button("Download and Update", action: exportSelected)
+                Button(selectedLens == .same ? "Download" : "Download and Update", action: exportSelected)
                     .disabled(selectedPhotos.isEmpty)
             }
                 .padding()
