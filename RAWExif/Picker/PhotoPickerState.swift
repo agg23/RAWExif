@@ -9,5 +9,6 @@ import Foundation
 import Photos
 
 class PhotoPickerState: ObservableObject {
-    let manager = PHImageManager.default()
+    let image = PHImageManager.default()
+    let resource = PHAssetResourceManager.default()
 }

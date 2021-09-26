@@ -41,12 +41,7 @@ private struct AuthorizedPhotoPicker: View {
 
         count = fetchedPhotos.count
 
-        var photos: [PHAsset] = []
-        fetchedPhotos.enumerateObjects { asset, _, _ in
-            photos.append(asset)
-        }
-
-        allPhotos = photos
+        allPhotos = fetchedPhotos.objects(at: IndexSet(integersIn: 0..<count))
     }
     
     public var body: some View {
@@ -54,6 +49,59 @@ private struct AuthorizedPhotoPicker: View {
         List(allPhotos, selection: $selectedPhotos) { asset in
             PhotoPickerListRowView(photo: asset)
         }.environmentObject(manager)
+        Button("Export RAW", action: exportSelectedRAW)
+    }
+    
+    private func exportSelectedRAW() {
+        guard !selectedPhotos.isEmpty, let first = selectedPhotos.first else {
+            return
+        }
+        
+        guard let asset = allPhotos.first(where: { asset in
+            asset.id == first
+        }) else {
+            return
+        }
+        
+        let resources = PHAssetResource.assetResources(for: asset)
+        guard let resource = resources.first(where: { resource in
+            if resource.type == .alternatePhoto {
+                return true
+            }
+            
+            guard let type = UTType(resource.uniformTypeIdentifier) else {
+                return false
+            }
+            
+            return type.conforms(to: .rawImage)
+        }) else {
+            return
+        }
+        
+        print("Exporting asset \(asset) using resource \(resource)")
+        
+        let options = PHAssetResourceRequestOptions()
+        options.isNetworkAccessAllowed = true
+        var data = Data()
+        manager.resource.requestData(for: resource, options: options) { newData in
+            data += newData
+        } completionHandler: { error in
+            if error != nil {
+                print("Error \(String(describing: error))")
+                return
+            }
+            
+            print("Downloaded image")
+            
+            let path = URL(fileURLWithPath: "\(NSHomeDirectory())/output.raw")
+            
+            do {
+                try data.write(to: path)
+                print("Wrote image to \(path)")
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
