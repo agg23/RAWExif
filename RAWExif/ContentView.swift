@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftUILib_DocumentPicker
+
 import Photos
 import ExifTool
 
@@ -44,8 +46,11 @@ struct ContentView: View {
     }
     
     @State var selectedLens: SelectedLens = .same
-        
+    
+    @State var isSelectingExportUrl = false
     @State var isExporting = false
+    
+    @State var exportUrl: URL?
     
     var body: some View {
         VStack {
@@ -70,14 +75,32 @@ struct ContentView: View {
                         }
                     }
                 }
-                Button(selectedLens == .same ? "Download" : "Download and Update", action: exportSelected)
+                Button(selectedLens == .same ? "Download" : "Download and Update", action: selectExportUrl)
                     .disabled(selectedPhotos.isEmpty)
             }
                 .padding()
                 .sheet(isPresented: $isExporting) {
                     ProgressView("Exporting images", value: Double(exportCount), total: Double(selectedPhotos.count)).padding()
                 }
+            // Wrapped in if as documentPicker doesn't have correct isPresented logic
+            if isSelectingExportUrl {
+                Group {}
+                    .documentPicker(isPresented: $isSelectingExportUrl, documentTypes: ["public.folder"], onDocumentsPicked:  { urls in
+                        isSelectingExportUrl = false
+                        guard let url = urls.first else {
+                            return
+                        }
+                        
+                        exportUrl = url
+                        
+                        exportSelected()
+                    })
+            }
         }
+    }
+    
+    private func selectExportUrl() {
+        isSelectingExportUrl = true
     }
     
     private func exportSelected() {
@@ -102,6 +125,10 @@ struct ContentView: View {
     }
     
     private func downloadRAW(for asset: PHAsset) async {
+        guard let exportUrl = exportUrl else {
+            return
+        }
+        
         let resources = PHAssetResource.assetResources(for: asset)
         
         guard let resource = resources.first(where: { resource in
@@ -117,7 +144,7 @@ struct ContentView: View {
         }) else {
             return
         }
-        
+
         print("Exporting asset \(asset) using resource \(resource)")
 
         let options = PHAssetResourceRequestOptions()
@@ -142,7 +169,7 @@ struct ContentView: View {
         
         print("Downloaded image")
 
-        let path = URL(fileURLWithPath: "\(NSHomeDirectory())/\(resource.originalFilename)")
+        let path = exportUrl.appendingPathComponent(resource.originalFilename)
 
         do {
             try data.write(to: path)

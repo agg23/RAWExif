@@ -18,6 +18,7 @@
 		664EA7B52700DE5F00D41627 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA7B42700DE5F00D41627 /* Optional.swift */; };
 		664EA7B72700DF6D00D41627 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA7B62700DF6D00D41627 /* Array.swift */; };
 		664EA7C0270131F200D41627 /* ExifTool in Frameworks */ = {isa = PBXBuildFile; productRef = 664EA7BF270131F200D41627 /* ExifTool */; };
+		664EA7C3270147FD00D41627 /* SwiftUILib.DocumentPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 664EA7C2270147FD00D41627 /* SwiftUILib.DocumentPicker */; };
 		669264B326FFB34A0095706E /* RAWExifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264B226FFB34A0095706E /* RAWExifApp.swift */; };
 		669264B526FFB34A0095706E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669264B426FFB34A0095706E /* ContentView.swift */; };
 		669264B726FFB34C0095706E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669264B626FFB34C0095706E /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664EA7C3270147FD00D41627 /* SwiftUILib.DocumentPicker in Frameworks */,
 				664EA7C0270131F200D41627 /* ExifTool in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +167,7 @@
 			name = RAWExif;
 			packageProductDependencies = (
 				664EA7BF270131F200D41627 /* ExifTool */,
+				664EA7C2270147FD00D41627 /* SwiftUILib.DocumentPicker */,
 			);
 			productName = RAWExif;
 			productReference = 669264AF26FFB34A0095706E /* RAWExif.app */;
@@ -196,6 +199,7 @@
 			mainGroup = 669264A626FFB34A0095706E;
 			packageReferences = (
 				664EA7BE270131F200D41627 /* XCRemoteSwiftPackageReference "ExifTool" */,
+				664EA7C1270147FD00D41627 /* XCRemoteSwiftPackageReference "document-picker" */,
 			);
 			productRefGroup = 669264B026FFB34A0095706E /* Products */;
 			projectDirPath = "";
@@ -448,6 +452,14 @@
 				kind = branch;
 			};
 		};
+		664EA7C1270147FD00D41627 /* XCRemoteSwiftPackageReference "document-picker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftuilib/document-picker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -455,6 +467,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 664EA7BE270131F200D41627 /* XCRemoteSwiftPackageReference "ExifTool" */;
 			productName = ExifTool;
+		};
+		664EA7C2270147FD00D41627 /* SwiftUILib.DocumentPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 664EA7C1270147FD00D41627 /* XCRemoteSwiftPackageReference "document-picker" */;
+			productName = SwiftUILib.DocumentPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
