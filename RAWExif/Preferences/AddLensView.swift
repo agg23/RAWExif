@@ -41,7 +41,7 @@ struct AddLensView: View {
                 TextField("Lens Min", value: $focalLengthMin, formatter: intFormatter)
                 TextField("Lens Max", value: $focalLengthMax, formatter: intFormatter)
             }
-            Section("Test") {
+            Section("F Stop") {
                 TextField("Picture F Stop", value: $fStop, formatter: doubleFormatter)
                 TextField("F Stop Min", value: $fStopMin, formatter: doubleFormatter)
                 TextField("F Stop Max", value: $fStopMax, formatter: doubleFormatter)

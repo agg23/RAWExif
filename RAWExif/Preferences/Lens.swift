@@ -26,8 +26,14 @@ struct Lens: Identifiable, Codable, Hashable {
         "\(focalLength).0 mm"
     }
     
-    var exifFocalLength35String: String {
-        "\(focalLength + 35).0 mm"
+    func exifFocalLength35String(scaleFactor: String) -> String {
+        guard let scaleFactor = Double(scaleFactor) else {
+            print("Unknown scaleFactor \(scaleFactor)")
+            assertionFailure()
+            return ""
+        }
+        
+        return String(format: "%.1f mm", Double(focalLength) * scaleFactor)
     }
     
     private var fullFocalLengthString: String {

@@ -8,17 +8,20 @@
 import SwiftUI
 import Photos
 
-struct PhotoPickerListRowView: View {
-    @EnvironmentObject var manager: PhotoPickerState
-    
+class ImageStore: ObservableObject {
+    @Published var image: NSImage? = nil
+}
+
+struct PhotoPickerListRowView: View {    
     var photo: PHAsset
-    @State private var image: NSImage? = nil
+    // Storing a StateObject instead of just the NSImage appears to improve the retrieval process
+    @StateObject private var image = ImageStore()
     @State private var resources = [PHAssetResource]()
     
     var body: some View {
         HStack {
             VStack {
-                if let image = image {
+                if let image = image.image {
                     Image(nsImage: image).overlay(alignment: .bottomTrailing) {
                         if photo.isFavorite {
                             Image(systemName: "heart.fill").padding().frame(width: 32, height: 32, alignment: .bottomTrailing)
@@ -38,15 +41,18 @@ struct PhotoPickerListRowView: View {
                     Text("Modified on \(modificationDate.ISO8601Format())")
                 }
                 Text(assetTypes())
-            }.onAppear {
-                fetchContent()
+                if image.image == nil {
+                    Button("Refresh image", action: {
+                        fetchContent()
+                    })
+                }
             }
-        }
+        }.onAppear(perform: fetchContent)
     }
     
     private func fetchContent() {
-        manager.image.requestImage(for: photo, targetSize: CGSize(width: 300, height: 300), contentMode: .default, options: nil) { newImage, _ in
-            image = newImage
+        PHImageManager.default().requestImage(for: photo, targetSize: CGSize(width: 300, height: 300), contentMode: .default, options: nil) { newImage, _ in
+            image.image = newImage
         }
         
         resources = PHAssetResource.assetResources(for: photo)

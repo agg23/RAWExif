@@ -8,16 +8,14 @@
 import SwiftUI
 import Photos
 
-struct PhotoPicker: View {
-    let manager: PhotoPickerState
-    
+struct PhotoPicker: View {    
     @Binding var selectedPhotos: [PHAsset]
     @State private var status: PHAuthorizationStatus = .denied
     
     var body: some View {
         VStack {
             if status == .authorized {
-                AuthorizedPhotoPicker(selectedPhotos: $selectedPhotos).environmentObject(manager)
+                AuthorizedPhotoPicker(selectedPhotos: $selectedPhotos)
             } else {
                 Text("Invalid authorization")
             }

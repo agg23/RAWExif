@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		664EA79926FFC82200D41627 /* PhotoPickerListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */; };
-		664EA79B26FFCAC700D41627 /* PhotoPickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */; };
 		664EA7A72700C8F600D41627 /* exiftool in Resources */ = {isa = PBXBuildFile; fileRef = 664EA7A62700C8F600D41627 /* exiftool */; };
 		664EA7A92700C93400D41627 /* ExifTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664EA7A82700C93400D41627 /* ExifTool.swift */; };
 		664EA7AB2700CC0900D41627 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 664EA7AA2700CC0900D41627 /* lib */; };
@@ -29,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerListRowView.swift; sourceTree = "<group>"; };
-		664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerState.swift; sourceTree = "<group>"; };
 		664EA7A62700C8F600D41627 /* exiftool */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = exiftool; sourceTree = "<group>"; };
 		664EA7A82700C93400D41627 /* ExifTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExifTool.swift; sourceTree = "<group>"; };
 		664EA7AA2700CC0900D41627 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			children = (
 				669264C326FFB48D0095706E /* PhotoPicker.swift */,
 				664EA79826FFC82200D41627 /* PhotoPickerListRowView.swift */,
-				664EA79A26FFCAC700D41627 /* PhotoPickerState.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -239,7 +236,6 @@
 				669264B326FFB34A0095706E /* RAWExifApp.swift in Sources */,
 				664EA7B72700DF6D00D41627 /* Array.swift in Sources */,
 				664EA7B22700D84B00D41627 /* Lens.swift in Sources */,
-				664EA79B26FFCAC700D41627 /* PhotoPickerState.swift in Sources */,
 				664EA7B52700DE5F00D41627 /* Optional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
