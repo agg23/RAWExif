@@ -7,6 +7,8 @@ Additionally, the app supports uploading new JPEGs (losslessly created) from the
 
 Future work will allow editing of local photos as well.
 
+![RAWExif Main Screen](https://user-images.githubusercontent.com/238679/136835689-6dca8369-f51c-40c0-8525-6ab980f2e939.png)
+
 ### Licensing
 
 RAWExif is licensed under the MIT license. For convenience, the wonderful [`exiftool` library](https://exiftool.org/) is included in this repo, licensed under the "Artistic License".
