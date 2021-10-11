@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUILib-DocumentPicker",
+        "repositoryURL": "https://github.com/swiftuilib/document-picker",
+        "state": {
+          "branch": null,
+          "revision": "dca7adf7c1ff5355b696ba2da7aebf6ffa9bb15d",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "ExifTool",
+        "repositoryURL": "https://github.com/agg23/ExifTool",
+        "state": {
+          "branch": "writing",
+          "revision": "d50d36643e755471a0317fa91be39b11a4223ab4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
