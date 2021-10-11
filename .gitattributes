@@ -1,2 +1,2 @@
-/RAWExif/ExifTool/exiftool linguist-detectable=false
-/RAWExif/ExifTool/lib/* linguist-detectable=false
+RAWExif/ExifTool/exiftool -linguist-vendored
+RAWExif/ExifTool/lib/** linguist-vendored
