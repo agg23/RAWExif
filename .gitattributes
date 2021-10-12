@@ -1,2 +1,2 @@
-RAWExif/ExifTool/exiftool -linguist-vendored
+RAWExif/ExifTool/exiftool linguist-vendored
 RAWExif/ExifTool/lib/** linguist-vendored
